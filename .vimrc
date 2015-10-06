@@ -295,6 +295,8 @@ set showcmd
 
 set magic                   " 设置魔术
 
+"esc保存
+autocmd InsertLeave * write
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 文件设置 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
@@ -428,9 +430,9 @@ autocmd BufNewFile,BufRead * setlocal nofoldenable "新打开文件，不折叠
 "插件管理
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 "启动默认NerdTree开启
-au VimEnter * NERDTree
-wincmd w
-autocmd VimEnter * wincmd w
+"au VimEnter * NERDTree
+"wincmd w
+"autocmd VimEnter * wincmd w
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize = 25
