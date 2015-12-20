@@ -140,9 +140,9 @@ Bundle 'taglist.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'closetag.vim'  
 Bundle 'matchit.zip'  
-Bundle 'AutoComplPop'  
+" Bundle 'AutoComplPop'  
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'jsbeautify'
+" Bundle 'jsbeautify'
 Bundle 'othree/html5.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -151,9 +151,10 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-commentary'
-Bundle 'rails.vim'
+" Bundle 'rails.vim'
 Bundle 'sickill/vim-monokai'
 Bundle 'tomasr/molokai'
+Bundle 'Shougo/neocomplete.vim'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -405,10 +406,8 @@ set smarttab
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
 
 if has("autocmd") 
-	autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number
 	autocmd FileType xml,html vmap 'o'>o-->
 	autocmd FileType java,c,cpp,cs vmap '
-	autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
 	autocmd Filetype html,xml,xsl,*.erb source $VIMFILES/bundle/closetag.vim/plugin/closetag.vim
 	autocmd BufReadPost *
 				\ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -436,7 +435,7 @@ autocmd BufNewFile,BufRead * setlocal nofoldenable "新打开文件，不折叠
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize = 25
-map <F2> :NERDTreeToggle<CR>
+map <F10> :NERDTreeToggle<CR>
 
 
 "taglist管理
@@ -458,24 +457,89 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F12> gg=G
 "文件切换快捷键
-imap <A-l> <Right>
-imap <A-h> <Left>
-map <A-j> :bp<CR> 
-map <A-k> :bn<CR> 
-
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
+imap <c-l> <Right>
+imap <c-h> <Left>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 nmap w= :resize +10<CR>
 nmap w- :resize -10<CR>
 nmap w, :vertical resize +10<CR>
-nmap w. :vertical resize +10<CR>
+nmap w. :vertical resize -10<CR>
 
 "mutliple hot-key
 set selection=inclusive
-"<enter> popup menu select first item
-imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+
+""""""""""neocomplete setting"""""""""""""""
+"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
