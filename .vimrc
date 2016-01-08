@@ -1,4 +1,4 @@
-" -----------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 "  < Vundle 插件管理工具配置 >
 " -----------------------------------------------------------------------------
 " 用于更方便的管理vim插件，具体用法参考 :h vundle 帮助
@@ -37,6 +37,7 @@ Bundle 'aperezdc/vim-template'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
+Bundle 'asins/vimcdoc'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -294,7 +295,6 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize = 25
 map <F10> :NERDTreeToggle<CR>
 
-
 "taglist管理
 let Tlist_Show_One_File=1                   "只显示当前文件的tags
 let Tlist_Enable_Fold_Column=0              "使taglist插件不显示左边的折叠行
@@ -313,9 +313,10 @@ let g:miniBufExplModSelTarget = 1
 ""快捷键设置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F12> gg=G
-inoremap <c-l> <Right>
-" map <c-j> :bn
-" map <c-k> :bp
+exe "set <A-l>=\<Esc>l"
+exe "set <A-h>=\<Esc>h"
+imap <A-l> <Right>
+imap <A-h> <Left>
 "文件切换快捷键
 imap jj <esc>
 
@@ -327,7 +328,9 @@ nmap w, :vertical resize +10<CR>
 nmap w. :vertical resize -10<CR>
 inoremap <expr> <CR> pumvisible()?"\<C-Y>":"\<CR>"
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "neosnippet setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
@@ -336,7 +339,9 @@ if has('conceal')
 	set conceallevel=2 concealcursor=niv
 endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "neocomplete setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -366,3 +371,8 @@ let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::' 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"emmet setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:user_emmet_leader_key='<Leader>'
