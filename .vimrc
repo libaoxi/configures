@@ -315,8 +315,8 @@ let mapleader=","
 map <F12> gg=G
 exe "set <A-l>=\<Esc>l"
 exe "set <A-h>=\<Esc>h"
-exe "set <A-j>=\<Esc>j"
-exe "set <A-k>=\<Esc>k"
+exe "set <A-j>=\<Esc>:bn"
+exe "set <A-k>=\<Esc>:bp"
 imap <A-l> <Right>
 imap <A-h> <Left>
 imap <A-j> :bn
