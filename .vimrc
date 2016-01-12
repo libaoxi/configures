@@ -19,18 +19,14 @@ Bundle 'taglist.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'closetag.vim'  
 Bundle 'matchit.zip'  
-" Bundle 'AutoComplPop'  
-Bundle 'jiangmiao/auto-pairs'
-" Bundle 'jsbeautify'
+Bundle 'Raimondi/delimitMate'
 Bundle 'othree/html5.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'terryma/vim-multiple-cursors'
-" Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-commentary'
-" Bundle 'rails.vim'
 Bundle 'sickill/vim-monokai'
 Bundle 'tomasr/molokai'
 Bundle 'aperezdc/vim-template'
@@ -213,6 +209,9 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 " 高亮显示匹配的括号 
 set showmatch 
 
+"高亮搜索
+set hlsearch
+
 " 输入:set list命令是应该显示些啥？ 
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ 
 
@@ -312,11 +311,13 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""快捷键设置
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=","
 map <F12> gg=G
 exe "set <A-l>=\<Esc>l"
 exe "set <A-h>=\<Esc>h"
 imap <A-l> <Right>
 imap <A-h> <Left>
+" nmap ; :
 "文件切换快捷键
 imap jj <esc>
 
@@ -376,3 +377,10 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "emmet setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:user_emmet_leader_key='<Leader>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,jsp EmmetInstall
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-template setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:username='libaoxi'
+let g:email='693879111@qq.com'
