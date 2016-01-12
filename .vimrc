@@ -315,8 +315,12 @@ let mapleader=","
 map <F12> gg=G
 exe "set <A-l>=\<Esc>l"
 exe "set <A-h>=\<Esc>h"
+exe "set <A-j>=\<Esc>j"
+exe "set <A-k>=\<Esc>k"
 imap <A-l> <Right>
 imap <A-h> <Left>
+imap <A-j> :bn
+imap <A-k> :bp
 " nmap ; :
 "文件切换快捷键
 imap jj <esc>
