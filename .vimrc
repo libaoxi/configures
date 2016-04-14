@@ -371,3 +371,7 @@ nmap w. :vertical resize -10<CR>
 set selection=inclusive
 "<enter> popup menu select first item
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+"template
+let g:email='693879111@qq.com'
+let g:username='libaoxi'
