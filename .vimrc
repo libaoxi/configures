@@ -57,7 +57,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'closetag.vim'  
 Bundle 'matchit.zip'  
 Bundle 'AutoComplPop'  
-Bundle 'jiangmiao/auto-pairs'
 Bundle 'jsbeautify'
 Bundle 'othree/html5.vim'
 Bundle 'kien/ctrlp.vim'
@@ -73,6 +72,8 @@ Bundle 'aperezdc/vim-template'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'godlygeek/tabular'
+Bundle 'Raimondi/delimitMate'
+Bundle 'nanotech/jellybeans.vim'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -121,9 +122,9 @@ set shortmess=atI                                     "去掉欢迎界面
 
 
 " 设置代码配色方案
-colorscheme molokai              "终端配色方案
-let g:rehash=256
-
+" colorscheme molokai_dark              "终端配色方案
+colorscheme jellybeans              "终端配色方案
+" let g:rehash=256
 
 " " -----------------------------------------------------------------------------
 " "  < MiniBufExplorer 插件配置 >
@@ -132,12 +133,6 @@ let g:rehash=256
 " " 主要用于同时打开多个文件并相与切换
 
 let g:miniBufExplMapWindowNavArrows = 1     "用Ctrl加方向键切换到上下左右的窗口中去
-
-" 在不使用 MiniBufExplorer 插件时也可用<C-k,j,h,l>切换到上下左右的窗口中去
-" noremap <c-k> <c-w>k
-" noremap <c-j> <c-w>j
-" noremap <c-h> <c-w>h
-" noremap <c-l> <c-w>l
 
 " =============================================================================
 "                          << 以下为常用自动命令配置 >>
@@ -328,8 +323,6 @@ autocmd BufNewFile,BufRead * setlocal nofoldenable "新打开文件，不折叠
 "wincmd w
 "autocmd VimEnter * wincmd w
 let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize = 25
 map <F10> :NERDTreeToggle<CR>
 
@@ -355,10 +348,10 @@ map <F12> gg=G
 "文件切换快捷键
 imap jj <esc>
 
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
+" imap <c-h> <Left>
+" imap <c-j> <Down>
+" imap <c-k> <Up>
+imap <c-l> <Right>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -370,7 +363,7 @@ nmap w. :vertical resize -10<CR>
 "mutliple hot-key
 set selection=inclusive
 "<enter> popup menu select first item
-imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "template
 let g:email='693879111@qq.com'
