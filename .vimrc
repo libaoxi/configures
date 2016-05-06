@@ -351,7 +351,7 @@ imap jj <esc>
 " imap <c-h> <Left>
 " imap <c-j> <Down>
 " imap <c-k> <Up>
-imap <c-l> <Right>
+" imap <c-l> <Right>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
