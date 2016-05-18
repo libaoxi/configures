@@ -312,7 +312,7 @@ set foldnestmax=9
 set foldlevel=1
 
 " 常规模式下用空格键来开关光标行所在折叠（注：zR 展开所有折叠，zM 关闭所有折叠）
-nnoremap <space> @=((foldclosed(line('.')) <0) ? 'zc' : 'zo')<CR> 
+" nnoremap <space> @=((foldclosed(line('.')) <0) ? 'zc' : 'zo')<CR> 
 
 autocmd BufNewFile,BufRead * setlocal nofoldenable "新打开文件，不折叠
 """""""""""""""""""""""""""""""""""""""""""""""""""""
