@@ -1,47 +1,7 @@
-" -----------------------------------------------------------------------------
-"  < Linux Gvim/Vim 默认配置> 做了一点修改
-" -----------------------------------------------------------------------------
-set hlsearch        "高亮搜索
-set incsearch       "在输入要搜索的文字时，实时匹配
-
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-if has("syntax")
-	syntax on
-endif
-
-set mouse=a                    " 在任何模式下启用鼠标
-set t_Co=256                   " 在终端启用256色
-set backspace=2                " 设置退格键可用
-
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-	source /etc/vim/vimrc.local
-endif
-
-
-" =============================================================================
-"                          << 以下为用户自定义配置 >>
-" =============================================================================
-
-" -----------------------------------------------------------------------------
 "  < Vundle 插件管理工具配置 >
 " -----------------------------------------------------------------------------
-" 用于更方便的管理vim插件，具体用法参考 :h vundle 帮助
-" Vundle工具安装方法为在终端输入如下命令
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" 如果想在 windows 安装就必需先安装 "git for window"，可查阅网上资料
-
+"
 set nocompatible                                      "禁用 Vi 兼容模式
 filetype off                                          "禁用文件类型侦测
 
@@ -111,11 +71,14 @@ set smartcase                                         "如果搜索模式包含�
 " -----------------------------------------------------------------------------
 "  < 界面配置 >
 " -----------------------------------------------------------------------------
+set mouse=a                    " 在任何模式下启用鼠标
+set t_Co=256                   " 在终端启用256色
+set backspace=2                " 设置退格键可用
 set number                                            "显示行号
 set laststatus=2                                      "启用状态栏信息
 set cmdheight=2                                       "设置命令行的高度为2，默认为1
 set cursorline                                        "突出显示当前行
-set guifont=Consolas:h11                 "设置字体:字号（字体名称空格用下划线代替）
+set guifont=Monaco:h14                 "设置字体:字号（字体名称空格用下划线代替）
 set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 " set gcr=a:block-blinkoff0
@@ -146,8 +109,11 @@ au BufRead,BufNewFile,BufEnter * cd %:p:h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 set helplang=cn
 
+set hlsearch        "高亮搜索
+set incsearch       "在输入要搜索的文字时，实时匹配
+
 "启动最大化
-au GUIEnter * simalt ~x
+" au GUIEnter * simalt ~x
 
 " history文件中需要记录的行数 
 set history=1000
@@ -156,7 +122,10 @@ set history=1000
 set confirm 
 
 " 与windows共享剪贴板 
-set clipboard+=unnamed 
+" set clipboard+=unnamed 
+" 与mac共享剪切板
+" vmap "+y :w !pbcopy<CR><CR>
+" nmap "+p :r !pbpaste<CR><CR>
 
 " 侦测文件类型 
 filetype on 
@@ -233,7 +202,9 @@ set showmatch
 set matchtime=1
 
 " 输入:set list命令是应该显示些啥？ 
-set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ 
+" set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ 
+set listchars=tab:\|\ ,extends:>,precedes:<
+" set list
 
 
 " 光标移动到buffer的顶部和底部时保持3行距离 
@@ -324,7 +295,7 @@ autocmd BufNewFile,BufRead * setlocal nofoldenable "新打开文件，不折叠
 "autocmd VimEnter * wincmd w
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 25
-map <F10> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 
 
 "taglist管理
@@ -334,7 +305,7 @@ let Tlist_Exit_OnlyWindow=1                 "如果Taglist窗口是最后一个�
 let Tlist_File_Fold_Auto_Close=1            "自动折叠
 let Tlist_WinWidth=30                       "设置窗口宽度
 let Tlist_Use_Right_Window=1                "在右侧窗口中显示
-map <F11> :TlistToggle<CR>
+map <F2> :TlistToggle<CR>
 
 " minibufexpl插件的一般设置 
 let g:miniBufExplMapWindowNavArrows = 1 
@@ -346,12 +317,12 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F12> gg=G
 "文件切换快捷键
-imap jj <esc>
+" imap jj <esc>
 
-" imap <c-h> <Left>
-" imap <c-j> <Down>
-" imap <c-k> <Up>
-" imap <c-l> <Right>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
