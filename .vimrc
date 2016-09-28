@@ -125,14 +125,6 @@ endif
 colorscheme jellybeans              "终端配色方案
 " let g:rehash=256
 
-" " -----------------------------------------------------------------------------
-" "  < MiniBufExplorer 插件配置 >
-" " -----------------------------------------------------------------------------
-" " 快速浏览和操作Buffer
-" " 主要用于同时打开多个文件并相与切换
-
-let g:miniBufExplMapWindowNavArrows = 1     "用Ctrl加方向键切换到上下左右的窗口中去
-
 " =============================================================================
 "                          << 以下为常用自动命令配置 >>
 " =============================================================================
@@ -158,10 +150,10 @@ set history=1000
 set confirm 
 
 " 与windows共享剪贴板 
-" set clipboard+=unnamed 
+set clipboard+=unnamed 
 " 与mac共享剪切板
-vmap "+y :w !pbcopy<CR><CR>
-nmap "+p :r !pbpaste<CR><CR>
+" vmap "+y :w !pbcopy<CR><CR>
+" nmap "+p :r !pbpaste<CR><CR>
 
 " 侦测文件类型 
 filetype on 
@@ -324,11 +316,6 @@ let Tlist_File_Fold_Auto_Close=1            "自动折叠
 let Tlist_WinWidth=30                       "设置窗口宽度
 let Tlist_Use_Right_Window=1                "在右侧窗口中显示
 map <F2> :TlistToggle<CR>
-
-" minibufexpl插件的一般设置 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""快捷键设置
