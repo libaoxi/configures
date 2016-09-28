@@ -14,26 +14,29 @@ Bundle 'gmarik/vundle'
 " 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
 Bundle 'taglist.vim'  
 Bundle 'scrooloose/nerdtree'
-Bundle 'closetag.vim'  
+Bundle 'alvan/vim-closetag'  
 Bundle 'matchit.zip'  
 Bundle 'AutoComplPop'  
-Bundle 'jsbeautify'
+Bundle 'maksimr/vim-jsbeautify'
 Bundle 'othree/html5.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
-Bundle 'fholgado/minibufexpl.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'msanders/snipmate.vim'
+" Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-commentary'
-Bundle 'rails.vim'
-Bundle 'tomasr/molokai'
+Bundle 'tpope/vim-rails'
 Bundle 'aperezdc/vim-template'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'godlygeek/tabular'
 Bundle 'Raimondi/delimitMate'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'KurtPreston/vim-autoformat-rails'
+Bundle 'bsdelf/bufferhint'
+Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -55,8 +58,8 @@ filetype plugin on                                    "针对不同的文件类�
 filetype plugin indent on                             "启用缩进
 set smartindent                                       "启用智能对齐方式
 set expandtab                                         "将Tab键转换为空格
-set tabstop=4                                         "设置Tab键的宽度，可以更改，如：宽度为2
-set shiftwidth=4                                      "换行时自动缩进宽度，可更改（宽度同tabstop）
+set tabstop=2                                         "设置Tab键的宽度，可以更改，如：宽度为2
+set shiftwidth=2                                      "换行时自动缩进宽度，可更改（宽度同tabstop）
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度
 
 " 当文件在外部被修改，自动更新该文件
@@ -78,11 +81,44 @@ set number                                            "显示行号
 set laststatus=2                                      "启用状态栏信息
 set cmdheight=2                                       "设置命令行的高度为2，默认为1
 set cursorline                                        "突出显示当前行
+set cursorcolumn                                      "高亮当前列
 set guifont=Monaco:h14                 "设置字体:字号（字体名称空格用下划线代替）
 set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 " set gcr=a:block-blinkoff0
 
+"禁止显示滚动 
+if has("gui_running")
+  set guioptions-=l
+  set guioptions-=L
+  set guioptions-=r
+  set guioptions-=R
+
+  set winaltkeys=no
+  set macmeta
+  noremap <silent><c-tab> :tabprev<CR>
+  inoremap <silent><c-tab> <ESC>:tabprev<CR>
+  noremap <silent><m-1> :tabn 1<cr>
+  noremap <silent><m-2> :tabn 2<cr>
+  noremap <silent><m-3> :tabn 3<cr>
+  noremap <silent><m-4> :tabn 4<cr>
+  noremap <silent><m-5> :tabn 5<cr>
+  noremap <silent><m-6> :tabn 6<cr>
+  noremap <silent><m-7> :tabn 7<cr>
+  noremap <silent><m-8> :tabn 8<cr>
+  noremap <silent><m-9> :tabn 9<cr>
+  noremap <silent><m-0> :tabn 10<cr>
+  inoremap <silent><m-1> <ESC>:tabn 1<cr>
+  inoremap <silent><m-2> <ESC>:tabn 2<cr>
+  inoremap <silent><m-3> <ESC>:tabn 3<cr>
+  inoremap <silent><m-4> <ESC>:tabn 4<cr>
+  inoremap <silent><m-5> <ESC>:tabn 5<cr>
+  inoremap <silent><m-6> <ESC>:tabn 6<cr>
+  inoremap <silent><m-7> <ESC>:tabn 7<cr>
+  inoremap <silent><m-8> <ESC>:tabn 8<cr>
+  inoremap <silent><m-9> <ESC>:tabn 9<cr>
+  inoremap <silent><m-0> <ESC>:tabn 10<cr>
+endif
 
 " 设置代码配色方案
 " colorscheme molokai_dark              "终端配色方案
@@ -124,8 +160,8 @@ set confirm
 " 与windows共享剪贴板 
 " set clipboard+=unnamed 
 " 与mac共享剪切板
-" vmap "+y :w !pbcopy<CR><CR>
-" nmap "+p :r !pbpaste<CR><CR>
+vmap "+y :w !pbcopy<CR><CR>
+nmap "+p :r !pbpaste<CR><CR>
 
 " 侦测文件类型 
 filetype on 
@@ -177,15 +213,13 @@ set cmdheight=2
 set backspace=2 
 
 " 允许backspace和光标键跨越行边界 
-"set whichwrap+=<,>,h,l 
+" set whichwrap+=<,>,h,l 
 
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位） 
 set mouse=a 
 set selection=exclusive 
 set selectmode=mouse,key 
 
-" 启动的时候不显示那个援助索马里儿童的提示 
-set shortmess=atI 
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过 
 set report=0 
 
@@ -204,7 +238,7 @@ set matchtime=1
 " 输入:set list命令是应该显示些啥？ 
 " set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ 
 set listchars=tab:\|\ ,extends:>,precedes:<
-" set list
+set list
 
 
 " 光标移动到buffer的顶部和底部时保持3行距离 
@@ -223,10 +257,10 @@ set autochdir
 map <F9> :!ctags -R<CR>
 autocmd VimLeavePre * call DelTags()
 function! DelTags()
-	if exists("tags")
-		silent !del /F /Q tags
-		echo 'a'
-	endif
+  if exists("tags")
+    silent !del /F /Q tags
+    echo 'a'
+  endif
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " 文本格式和排版 
@@ -243,37 +277,21 @@ set smartindent
 " 使用C样式的缩进 
 set cindent 
 
-" 制表符为4 
-set tabstop=4 
-
-" 统一缩进为4 
-set softtabstop=4 
-set shiftwidth=4 
-
-" 不要用空格代替制表符 
-set noexpandtab 
-
-" 不要换行 
-set nowrap 
-
-" 在行和段开始处使用制表符 
-set smarttab 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
 
 if has("autocmd") 
-	autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number
-	autocmd FileType xml,html vmap 'o'>o-->
-	autocmd FileType java,c,cpp,cs vmap '
-	autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
-	autocmd Filetype html,xml,xsl,*.erb source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
-	autocmd BufReadPost *
-				\ if line("'\"") > 0 && line("'\"") <= line("$") |
-				\ exe " normal g`\"" |
-				\ endif
+  autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number
+  autocmd FileType xml,html vmap 'o'>o-->
+  autocmd FileType java,c,cpp,cs vmap '
+  autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
+  autocmd Filetype html,xml,xsl,*.erb source ~/.vim/bundle/vim-closetag/plugin/closetag.vim
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ exe " normal g`\"" |
+        \ endif
 endif "has("autocmd")
 autocmd BufRead *.erb set filetype=eruby
 
@@ -317,7 +335,7 @@ let g:miniBufExplModSelTarget = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F12> gg=G
 "文件切换快捷键
-" imap jj <esc>
+imap jj <esc>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -339,3 +357,27 @@ set selection=inclusive
 "template
 let g:email='693879111@qq.com'
 let g:username='libaoxi'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim bufferhint
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap - :call bufferhint#Popup()<CR>
+nnoremap \ :call bufferhint#LoadPrevious()<CR>
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ neosnippet#expandable_or_jumpable() ?
+      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
