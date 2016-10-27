@@ -58,8 +58,8 @@ filetype plugin on                                    "针对不同的文件类�
 filetype plugin indent on                             "启用缩进
 set smartindent                                       "启用智能对齐方式
 set expandtab                                         "将Tab键转换为空格
-set tabstop=2                                         "设置Tab键的宽度，可以更改，如：宽度为2
-set shiftwidth=2                                      "换行时自动缩进宽度，可更改（宽度同tabstop）
+set tabstop=4                                         "设置Tab键的宽度，可以更改，如：宽度为2
+set shiftwidth=4                                     "换行时自动缩进宽度，可更改（宽度同tabstop）
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度
 
 " 当文件在外部被修改，自动更新该文件
@@ -89,6 +89,8 @@ set shortmess=atI                                     "去掉欢迎界面
 
 "禁止显示滚动 
 if has("gui_running")
+
+  set lines=999 columns=999           "全屏
   set guioptions-=l
   set guioptions-=L
   set guioptions-=r
@@ -189,7 +191,7 @@ set magic                   " 设置魔术
 set nobackup 
 
 " 不要生成swap文件，当buffer被丢弃的时候隐藏它 
-setlocal noswapfile 
+set noswapfile 
 set bufhidden=hide 
 
 " 字符间插入的像素行数目 
@@ -230,7 +232,7 @@ set matchtime=1
 " 输入:set list命令是应该显示些啥？ 
 " set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ 
 set listchars=tab:\|\ ,extends:>,precedes:<
-set list
+" set list
 
 
 " 光标移动到buffer的顶部和底部时保持3行距离 
@@ -338,8 +340,10 @@ nmap w. :vertical resize -10<CR>
 
 "mutliple hot-key
 set selection=inclusive
-"<enter> popup menu select first item
-" imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+" <enter> popup menu select first item
+inoremap <expr><CR>
+      \ pumvisible() ? "\<C-y>" : "\<CR>"
 
 "template
 let g:email='693879111@qq.com'
