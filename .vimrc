@@ -34,6 +34,9 @@ Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Yggdroot/indentLine'
+Bundle 'tpope/vim-ragtag'
+Bundle 'will133/vim-dirdiff'
+Bundle 'vim-scripts/JavaScript-Indent'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -55,8 +58,8 @@ filetype plugin on                                    "针对不同的文件类�
 filetype plugin indent on                             "启用缩进
 set smartindent                                       "启用智能对齐方式
 set expandtab                                         "将Tab键转换为空格
-set tabstop=2                                         "设置Tab键的宽度，可以更改，如：宽度为2
-set shiftwidth=2                                     "换行时自动缩进宽度，可更改（宽度同tabstop）
+set tabstop=4                                         "设置Tab键的宽度，可以更改，如：宽度为2
+set shiftwidth=4                                     "换行时自动缩进宽度，可更改（宽度同tabstop）
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度
 
 " 当文件在外部被修改，自动更新该文件
@@ -87,7 +90,7 @@ set shortmess=atI                                     "去掉欢迎界面
 "禁止显示滚动
 if has("gui_running")
 
-    " set lines=999 columns=999           "全屏
+    set lines=999 columns=999           "全屏
     set guioptions-=l
     set guioptions-=L
     set guioptions-=r
