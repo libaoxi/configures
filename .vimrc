@@ -12,7 +12,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
-Bundle 'taglist.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'alvan/vim-closetag'
 Bundle 'matchit.zip'
@@ -28,15 +27,16 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'aperezdc/vim-template'
 Bundle 'Raimondi/delimitMate'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'KurtPreston/vim-autoformat-rails'
 Bundle 'bsdelf/bufferhint'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Yggdroot/indentLine'
-Bundle 'tpope/vim-ragtag'
 Bundle 'will133/vim-dirdiff'
-Bundle 'vim-scripts/JavaScript-Indent'
+Bundle 'jason0x43/vim-js-indent'
+Bundle 'w0rp/ale'
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'majutsushi/tagbar'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -82,7 +82,7 @@ set laststatus=2                                      "启用状态栏信息
 set cmdheight=2                                       "设置命令行的高度为2，默认为1
 set cursorline                                        "突出显示当前行
 set cursorcolumn                                      "高亮当前列
-set guifont=Monaco:h14                 "设置字体:字号（字体名称空格用下划线代替）
+set guifont=Monaco:h15                 "设置字体:字号（字体名称空格用下划线代替）
 set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 " set gcr=a:block-blinkoff0
@@ -265,9 +265,6 @@ set formatoptions=tcrqn
 " 继承前一行的缩进方式，特别适用于多行注释
 set autoindent
 
-" 为C程序提供自动缩进
-set smartindent
-
 " 使用C样式的缩进
 set cindent
 
@@ -311,13 +308,7 @@ map <F3> :NERDTreeToggle<CR>
 
 
 "taglist管理
-let Tlist_Show_One_File=1                   "只显示当前文件的tags
-let Tlist_Enable_Fold_Column=0              "使taglist插件不显示左边的折叠行
-let Tlist_Exit_OnlyWindow=1                 "如果Taglist窗口是最后一个窗口则退出Vim
-let Tlist_File_Fold_Auto_Close=1            "自动折叠
-let Tlist_WinWidth=30                       "设置窗口宽度
-let Tlist_Use_Right_Window=1                "在右侧窗口中显示
-map <F2> :TlistToggle<CR>
+map <F4> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 ""快捷键设置
@@ -341,8 +332,8 @@ nmap w= :resize +10<CR>
 nmap w- :resize -10<CR>
 nmap w, :vertical resize +10<CR>
 nmap w. :vertical resize -10<CR>
-
-nmap `` \==
+" nmap `` \==
+nmap `` :Autoformat<CR>
 
 "mutliple hot-key
 set selection=inclusive
