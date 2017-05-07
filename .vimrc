@@ -25,6 +25,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'aperezdc/vim-template'
+Bundle 'KurtPreston/vim-autoformat-rails'
 Bundle 'Raimondi/delimitMate'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'bsdelf/bufferhint'
@@ -34,8 +35,8 @@ Bundle 'Shougo/neosnippet-snippets'
 Bundle 'Yggdroot/indentLine'
 Bundle 'will133/vim-dirdiff'
 Bundle 'jason0x43/vim-js-indent'
-Bundle 'w0rp/ale'
-Bundle 'Chiel92/vim-autoformat'
+" Bundle 'w0rp/ale'
+" Bundle 'Chiel92/vim-autoformat'
 Bundle 'majutsushi/tagbar'
 
 " -----------------------------------------------------------------------------
@@ -332,8 +333,8 @@ nmap w= :resize +10<CR>
 nmap w- :resize -10<CR>
 nmap w, :vertical resize +10<CR>
 nmap w. :vertical resize -10<CR>
-" nmap `` \==
-nmap `` :Autoformat<CR>
+nmap `` \==
+" nmap `` :Autoformat<CR>
 
 "mutliple hot-key
 set selection=inclusive
