@@ -38,6 +38,7 @@ Bundle 'jason0x43/vim-js-indent'
 " Bundle 'w0rp/ale'
 " Bundle 'Chiel92/vim-autoformat'
 Bundle 'majutsushi/tagbar'
+Bundle 'editorconfig/editorconfig-vim'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -59,8 +60,8 @@ filetype plugin on                                    "针对不同的文件类�
 filetype plugin indent on                             "启用缩进
 set smartindent                                       "启用智能对齐方式
 set expandtab                                         "将Tab键转换为空格
-set tabstop=4                                         "设置Tab键的宽度，可以更改，如：宽度为2
-set shiftwidth=4                                     "换行时自动缩进宽度，可更改（宽度同tabstop）
+set tabstop=2                                         "设置Tab键的宽度，可以更改，如：宽度为2
+set shiftwidth=2                                     "换行时自动缩进宽度，可更改（宽度同tabstop）
 set smarttab                                          "指定按一次backspace就删除shiftwidth宽度
 
 " 当文件在外部被修改，自动更新该文件
@@ -83,7 +84,7 @@ set laststatus=2                                      "启用状态栏信息
 set cmdheight=2                                       "设置命令行的高度为2，默认为1
 set cursorline                                        "突出显示当前行
 set cursorcolumn                                      "高亮当前列
-set guifont=Monaco:h15                 "设置字体:字号（字体名称空格用下划线代替）
+set guifont=Monaco:h14                 "设置字体:字号（字体名称空格用下划线代替）
 set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 " set gcr=a:block-blinkoff0
