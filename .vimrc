@@ -15,7 +15,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'alvan/vim-closetag'
 Bundle 'matchit.zip'
-Bundle 'AutoComplPop'
+Bundle 'vim-scripts/L9'
+Bundle 'othree/vim-autocomplpop'
 Bundle 'othree/html5.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -32,13 +33,11 @@ Bundle 'bsdelf/bufferhint'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
-Bundle 'Yggdroot/indentLine'
+Bundle 'jiangmiao/auto-pairs'
 Bundle 'will133/vim-dirdiff'
 Bundle 'jason0x43/vim-js-indent'
-" Bundle 'w0rp/ale'
-" Bundle 'Chiel92/vim-autoformat'
 Bundle 'majutsushi/tagbar'
-Bundle 'editorconfig/editorconfig-vim'
+Bundle 'elzr/vim-json'
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -84,7 +83,7 @@ set laststatus=2                                      "启用状态栏信息
 set cmdheight=2                                       "设置命令行的高度为2，默认为1
 set cursorline                                        "突出显示当前行
 set cursorcolumn                                      "高亮当前列
-set guifont=Monaco:h14                 "设置字体:字号（字体名称空格用下划线代替）
+set guifont=Monaco:h13                 "设置字体:字号（字体名称空格用下划线代替）
 set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 " set gcr=a:block-blinkoff0
@@ -317,7 +316,7 @@ map <F4> :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F12> gg=G
 "文件切换快捷键
-imap jj <esc>
+imap jk <esc>
 
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-j> <C-w>j
@@ -368,6 +367,12 @@ imap <expr><TAB>
 " \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
+" if has('conceal')
+"     set conceallevel=2 concealcursor=niv
+" endif
+
+:let mapleader = ","
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <space> viw
+" nnoremap <s-o> i<CR><ESC>
