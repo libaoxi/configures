@@ -36,8 +36,11 @@ Bundle 'Shougo/neosnippet-snippets'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'will133/vim-dirdiff'
 Bundle 'jason0x43/vim-js-indent'
+Bundle 'maksimr/vim-jsbeautify'
 Bundle 'majutsushi/tagbar'
 Bundle 'elzr/vim-json'
+Bundle 'axiaoxin/vim-json-line-format'
+Bundle "posva/vim-vue"
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -340,11 +343,10 @@ nmap `` \==
 set selection=inclusive
 
 " <enter> popup menu select first item
-inoremap <expr><CR>
-            \ pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "template
-let g:email='693879111@qq.com'
+let g:email='i@libaoxi.com'
 let g:username='libaoxi'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
