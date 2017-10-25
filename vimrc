@@ -25,15 +25,13 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'aperezdc/vim-template'
-Bundle 'KurtPreston/vim-autoformat-rails'
+Bundle 'libaoxi/vim-template'
 Bundle 'Raimondi/delimitMate'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'bsdelf/bufferhint'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
-Bundle 'jiangmiao/auto-pairs'
 Bundle 'will133/vim-dirdiff'
 Bundle 'jason0x43/vim-js-indent'
 Bundle 'maksimr/vim-jsbeautify'
@@ -41,6 +39,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'elzr/vim-json'
 Bundle 'axiaoxin/vim-json-line-format'
 Bundle "posva/vim-vue"
+Bundle "Chiel92/vim-autoformat"
+Bundle "mileszs/ack.vim"
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -337,6 +337,7 @@ nmap w- :resize -10<CR>
 nmap w, :vertical resize +10<CR>
 nmap w. :vertical resize -10<CR>
 nmap `` \==
+noremap `` :Autoformat<CR>
 " nmap `` :Autoformat<CR>
 
 "mutliple hot-key
