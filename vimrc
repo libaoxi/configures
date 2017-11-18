@@ -41,6 +41,7 @@ Bundle 'axiaoxin/vim-json-line-format'
 Bundle "posva/vim-vue"
 Bundle "Chiel92/vim-autoformat"
 Bundle "mileszs/ack.vim"
+Bundle "Valloric/MatchTagAlways"
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -379,3 +380,4 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <space> viw
 " nnoremap <s-o> i<CR><ESC>
+let g:mta_use_matchparen_group = 1
