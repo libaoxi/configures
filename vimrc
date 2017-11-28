@@ -26,7 +26,6 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'libaoxi/vim-template'
-Bundle 'Raimondi/delimitMate'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'bsdelf/bufferhint'
 Bundle 'Shougo/neocomplete'
@@ -42,6 +41,7 @@ Bundle "posva/vim-vue"
 Bundle "Chiel92/vim-autoformat"
 Bundle "mileszs/ack.vim"
 Bundle "Valloric/MatchTagAlways"
+Bundle "jiangmiao/auto-pairs"
 
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
@@ -381,3 +381,4 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <space> viw
 " nnoremap <s-o> i<CR><ESC>
 let g:mta_use_matchparen_group = 1
+let delimitMate_expand_cr = 1
