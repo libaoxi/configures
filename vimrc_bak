@@ -5,40 +5,42 @@
 set nocompatible                                      "禁用 Vi 兼容模式
 filetype off                                          "禁用文件类型侦测
 
-call plug#begin('~/.vim/plugged')
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" 使用Vundle来管理插件，这个必须要有。
+Bundle 'gmarik/vundle'
 
 " 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
-Plug 'scrooloose/nerdtree'
-Plug 'alvan/vim-closetag'
-" Plug 'matchit.zip'
-Plug 'vim-scripts/L9'
-Plug 'othree/vim-autocomplpop'
-Plug 'othree/html5.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'mattn/emmet-vim'
-Plug 'itchyny/lightline.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-commentary'
-Plug 'vim-ruby/vim-ruby'
-Plug 'libaoxi/vim-template'
-Plug 'nanotech/jellybeans.vim'
-Plug 'bsdelf/bufferhint'
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'will133/vim-dirdiff'
-Plug 'jason0x43/vim-js-indent'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'majutsushi/tagbar'
-Plug 'elzr/vim-json'
-Plug 'axiaoxin/vim-json-line-format'
-Plug 'posva/vim-vue'
-Plug 'mileszs/ack.vim'
-Plug 'Valloric/MatchTagAlways'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
+Bundle 'alvan/vim-closetag'
+Bundle 'matchit.zip'
+Bundle 'vim-scripts/L9'
+Bundle 'othree/vim-autocomplpop'
+Bundle 'othree/html5.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'itchyny/lightline.vim'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'tpope/vim-commentary'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'libaoxi/vim-template'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'bsdelf/bufferhint'
+Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
+Bundle 'will133/vim-dirdiff'
+Bundle 'jason0x43/vim-js-indent'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'majutsushi/tagbar'
+Bundle 'elzr/vim-json'
+Bundle 'axiaoxin/vim-json-line-format'
+Bundle "posva/vim-vue"
+Bundle "mileszs/ack.vim"
+Bundle "Valloric/MatchTagAlways"
+Bundle "jiangmiao/auto-pairs"
 
-call plug#end()
 " -----------------------------------------------------------------------------
 "  < 编码配置 >
 " -----------------------------------------------------------------------------
