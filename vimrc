@@ -31,7 +31,7 @@ Plug 'jason0x43/vim-js-indent'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'majutsushi/tagbar'
 Plug 'elzr/vim-json'
-Plug 'axiaoxin/vim-json-line-format'
+" Plug 'axiaoxin/vim-json-line-format'
 Plug 'posva/vim-vue'
 Plug 'mileszs/ack.vim'
 Plug 'Valloric/MatchTagAlways'
@@ -46,6 +46,7 @@ call plug#end()
 set encoding=utf-8                                    "设置gvim内部编码，默认不更改
 set fileencoding=utf-8                                "设置当前文件编码，可以更改，如：gbk（同cp936）
 set fileencodings=ucs-bom,utf-8,gbk,cp936,latin-1     "设置支持打开的文件的编码
+set ambiwidth=double                                  "不明字符全角"
 
 " 文件格式，默认 ffs=dos,unix
 set fileformat=unix                                   "设置新（当前）文件的<EOL>格式，可以更改，如：dos（windows系统常用）
