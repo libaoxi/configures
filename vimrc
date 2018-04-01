@@ -37,6 +37,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'rking/ag.vim'
 
 call plug#end()
 " -----------------------------------------------------------------------------
