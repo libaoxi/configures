@@ -38,6 +38,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'rking/ag.vim'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 " -----------------------------------------------------------------------------
@@ -103,26 +104,24 @@ if has("gui_running")
     set macmeta
     noremap <silent><c-tab> :tabprev<CR>
     inoremap <silent><c-tab> <ESC>:tabprev<CR>
-    noremap <silent><m-1> :tabn 1<cr>
-    noremap <silent><m-2> :tabn 2<cr>
-    noremap <silent><m-3> :tabn 3<cr>
-    noremap <silent><m-4> :tabn 4<cr>
-    noremap <silent><m-5> :tabn 5<cr>
-    noremap <silent><m-6> :tabn 6<cr>
-    noremap <silent><m-7> :tabn 7<cr>
-    noremap <silent><m-8> :tabn 8<cr>
-    noremap <silent><m-9> :tabn 9<cr>
-    noremap <silent><m-0> :tabn 10<cr>
-    inoremap <silent><m-1> <ESC>:tabn 1<cr>
-    inoremap <silent><m-2> <ESC>:tabn 2<cr>
-    inoremap <silent><m-3> <ESC>:tabn 3<cr>
-    inoremap <silent><m-4> <ESC>:tabn 4<cr>
-    inoremap <silent><m-5> <ESC>:tabn 5<cr>
-    inoremap <silent><m-6> <ESC>:tabn 6<cr>
-    inoremap <silent><m-7> <ESC>:tabn 7<cr>
-    inoremap <silent><m-8> <ESC>:tabn 8<cr>
-    inoremap <silent><m-9> <ESC>:tabn 9<cr>
-    inoremap <silent><m-0> <ESC>:tabn 10<cr>
+    noremap <silent><d-1> :tabn 1<cr>
+    noremap <silent><d-2> :tabn 2<cr>
+    noremap <silent><d-3> :tabn 3<cr>
+    noremap <silent><d-4> :tabn 4<cr>
+    noremap <silent><d-5> :tabn 5<cr>
+    noremap <silent><d-6> :tabn 6<cr>
+    noremap <silent><d-9> :tabn 9<cr>
+    noremap <silent><d-0> :tabn 10<cr>
+    inoremap <silent><d-1> <ESC>:tabn 1<cr>
+    inoremap <silent><d-2> <ESC>:tabn 2<cr>
+    inoremap <silent><d-3> <ESC>:tabn 3<cr>
+    inoremap <silent><d-4> <ESC>:tabn 4<cr>
+    inoremap <silent><d-5> <ESC>:tabn 5<cr>
+    inoremap <silent><d-6> <ESC>:tabn 6<cr>
+    inoremap <silent><d-7> <ESC>:tabn 7<cr>
+    inoremap <silent><d-8> <ESC>:tabn 8<cr>
+    inoremap <silent><d-9> <ESC>:tabn 9<cr>
+    inoremap <silent><d-0> <ESC>:tabn 10<cr>
 endif
 
 " 设置代码配色方案
@@ -340,7 +339,7 @@ nmap w. :vertical resize -10<CR>
 set selection=inclusive
 
 " <enter> popup menu select first item
-inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "template
 let g:email='i@libaoxi.com'
