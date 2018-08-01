@@ -38,7 +38,6 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'rking/ag.vim'
-Plug 'alvan/vim-closetag'
 
 call plug#end()
 " -----------------------------------------------------------------------------
