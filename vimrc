@@ -1,6 +1,6 @@
 "  < Vundle 插件管理工具配置 >
 " -----------------------------------------------------------------------------
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "
 set nocompatible                                      "禁用 Vi 兼容模式
 filetype off                                          "禁用文件类型侦测
@@ -305,6 +305,7 @@ autocmd BufNewFile,BufRead * setlocal nofoldenable "新打开文件，不折叠
 "autocmd VimEnter * wincmd w
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeWinSize = 25
+let g:NERDTreeShowHidden=1
 map <F3> :NERDTreeToggle<CR>
 
 
