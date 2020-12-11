@@ -279,7 +279,7 @@ if has("autocmd")
     autocmd FileType xml,html vmap 'o'>o-->
     autocmd FileType java,c,cpp,cs vmap '
     autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
-    autocmd Filetype html,xml,xsl,*.erb source ~/.vim/bundle/vim-closetag/plugin/closetag.vim
+    autocmd Filetype html,xsl,*.erb source ~/.vim/bundle/vim-closetag/plugin/closetag.vim
     autocmd BufReadPost *
                 \ if line("'\"") > 0 && line("'\"") <= line("$") |
                 \ exe " normal g`\"" |

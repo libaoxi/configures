@@ -1,4 +1,4 @@
-source ~/.antigen.zsh
+source ~/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -44,4 +44,5 @@ export PROJECT_NAME=mage_main
 export SDKMAN_DIR="/Users/barry/.sdkman"
 [[ -s "/Users/barry/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/barry/.sdkman/bin/sdkman-init.sh"
 
-eval "$(fnm env --multi)"
+eval "$(fnm env)"
+export FNM_NODE_DIST_MIRROR="http://npm.taobao.org/mirrors/node"
